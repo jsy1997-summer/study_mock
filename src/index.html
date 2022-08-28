@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <button onclick="listen()">点击</button> -->
+    <div id="text"></div>
+    <script>
+        var arr = [
+        ]
+        for (var i = 0; i < 2000; i++) {
+            arr.push(
+                { red: "red" + Math.round(Math.random() * 40000) },
+                { blue: "blue" + Math.round(Math.random() * 40000) },
+                { yellow: "yellow" + Math.round(Math.random() * 40000) },
+                { black: "black" + Math.round(Math.random() * 40000) },
+                { gray: "gray" + Math.round(Math.random() * 40000) },
+
+            )
+        }
+        document.getElementById("text").innerHTML = JSON.stringify(arr)
+    </script>
+</body>
+
+</html>
