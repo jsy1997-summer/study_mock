@@ -12,6 +12,7 @@ import './App.css';
 import '../src/mock/mock'
 import '../src/mock/mock/mockfunction'
 import '../src/mock/mock/mockTemplate'
+import '../src/mock/random/basic'
 
 import Test from './views/test/test';
 

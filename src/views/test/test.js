@@ -41,6 +41,27 @@ export default function Test() {
                 console.log('errortemplate:', err)
             })
     }
+    function basic(){
+        axios.post('/basic')
+            .then(res => {
+                console.log('res', res)
+            })
+            .catch(err => {
+                console.log('err', err)
+            })
+    }
+    function data(){}
+    function image(){}
+    function color(){}
+    function text(){}
+    function name(){}
+    function web(){}
+    function address(){}
+    function helper(){}
+    function Miscellaneous(){}
+    function valid(){}
+    function toJSONSchema(){}
+
 
     return (
         <div>
@@ -48,6 +69,24 @@ export default function Test() {
             <div>Mock.mock()：
                 <button onClick={mockfunction}>mockfunction</button>
                 <button onClick={mocktemplate}>mocktemplate</button>
+            </div>
+            <div>Mock.random()：
+                <button onClick={basic}>basic</button>
+                <button onClick={data}>data</button>
+                <button onClick={image}>image</button>
+                <button onClick={color}>color</button>
+                <button onClick={text}>text</button>
+                <button onClick={name}>name</button>
+                <button onClick={web}>web</button>
+                <button onClick={address}>address</button>
+                <button onClick={helper}>helper</button>
+                <button onClick={Miscellaneous}>Miscellaneous</button>
+            </div>
+            <div>Mock.valid()：
+                <button onClick={valid}>valid</button>
+            </div>
+            <div>Mock.toJSONSchema()：
+                <button onClick={toJSONSchema}>toJSONSchema</button>
             </div>
         </div>
     )
