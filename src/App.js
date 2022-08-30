@@ -1,41 +1,27 @@
+/*
+ * @Author: jiasuyin
+ * @Date: 2022-08-29 17:41:36
+ * @LastEditors: jiasuyin
+ * @LastEditTime: 2022-08-30 11:22:16
+ * @important: 重要提醒
+ * @Description: 备注内容
+ * @FilePath: \study_mock\src\App.js
+ */
 import logo from './logo.svg';
 import './App.css';
 import '../src/mock/mock'
-import axios from 'axios'
+import '../src/mock/mock/mockfunction'
+import '../src/mock/mock/mockTemplate'
+
 import Test from './views/test/test';
 
 
 function App() {
-  function testclick() {
-    // axios.get('/getdata1', {
-    //   params: {
-    //     id: '123'
-    //   }
-    // })
-    axios({
-      type: 'post',
-      url: '/data',
-      data: {
-        'data': '123456'
-      },
-      dataType: 'jsonp',
-      header: {
-        'Content-Type': 'application/json;charset=utf-8'  //如果写成contentType会报错
-      }
-    })
-      .then(res => {
-        console.log(res, 'res')
-      })
-      .catch(Error => {
-        console.log(Error)
-      })
-
-  }
+  
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <button onClick={testclick}>点击</button>
         <Test></Test>
         <p>
           Edit <code>src/App.js</code> and save to reload.
