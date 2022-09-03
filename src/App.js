@@ -2,7 +2,7 @@
  * @Author: jiasuyin
  * @Date: 2022-08-29 17:41:36
  * @LastEditors: jiasuyin
- * @LastEditTime: 2022-08-30 11:22:16
+ * @LastEditTime: 2022-09-03 19:40:57
  * @important: 重要提醒
  * @Description: 备注内容
  * @FilePath: \study_mock\src\App.js
@@ -12,6 +12,8 @@ import './App.css';
 import '../src/mock/mock'
 import '../src/mock/mock/mockfunction'
 import '../src/mock/mock/mockTemplate'
+import '../src/mock/random/basic'
+import '../src/mock/random/date'
 
 import Test from './views/test/test';
 
