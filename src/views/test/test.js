@@ -51,10 +51,25 @@ export default function Test() {
             })
     }
     function data(){}
-    function image(){}
+    function image(){
+        axios.post('/image').then(res=>{
+            console.log(res,'image')
+        })
+        axios.post('/image1').then(res=>{
+            console.log(res,'image1')
+        })
+    }
     function color(){}
-    function text(){}
-    function name(){}
+    function text(){
+        axios.post('/text').then(res=>{
+            console.log(res,'text')
+        }) 
+    }
+    function name(){
+        axios.post('/name').then(res=>{
+            console.log(res,'text')
+        }) 
+    }
     function web(){}
     function address(){}
     function helper(){}
