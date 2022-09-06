@@ -2,12 +2,12 @@
  * @Author: jiasuyin
  * @Date: 2022-08-30 09:26:42
  * @LastEditors: jiasuyin
- * @LastEditTime: 2022-09-03 19:40:15
+ * @LastEditTime: 2022-09-05 11:25:09
  * @important: 重要提醒
  * @Description: 备注内容
  * @FilePath: \study_mock\src\views\test\test.js
  */
-import React,{useState} from "react"
+import React, { useState } from "react"
 import axios from 'axios'
 
 export default function Test() {
@@ -42,13 +42,17 @@ export default function Test() {
             })
     }
     function basic() {
-        axios.post('/boolean')
-            .then(res => {
-                console.log('res', res)
-            })
-            .catch(err => {
-                console.log('err', err)
-            })
+        for (var i = 0; i < 100; i++) {
+            axios.post('/boolean')
+                .then(res => {
+                    console.log('res', res.data.data)
+                })
+                .catch(err => {
+                    console.log('err', err)
+                })
+
+        }
+
 
         // axios.post('/natural')
         //     .then(res => {
@@ -61,10 +65,10 @@ export default function Test() {
     }
     function data() {
         axios.post('/date')
-        .then(res => {
-            console.log('date', res)
-        })
-     }
+            .then(res => {
+                console.log('date', res)
+            })
+    }
     function image() { }
     function color() { }
     function text() { }
@@ -76,30 +80,64 @@ export default function Test() {
     function valid() { }
     function toJSONSchema() { }
     const [flag, setFlag] = useState(true)
-    function cycle1(){
-        const interval = setInterval(()=>{
+    function cycle1() {
+        const interval = setInterval(() => {
             setFlag(true)
-            console.log(flag,'flag')
+            console.log(flag, 'flag')
 
-            if(flag){
+            if (flag) {
                 console.log('执行了')
                 clearInterval(interval)
             }
 
         })
     }
-    function cycle2(){
+    function cycle2() {
         var flag = 1
-        const interval = setInterval(()=>{
-            
+        const interval = setInterval(() => {
 
-            if(flag === 1){
+
+            if (flag === 1) {
                 console.log('执行了')
                 clearInterval(interval)
             }
 
         })
-        
+
+    }
+    function cycle3() {
+        var flag = 1
+        // var result
+        const interval = setInterval(() => {
+
+            // if (flag === 0) {
+            //     console.log('执行结束')
+            //     console.log('得到最终结果', result)
+            //     clearInterval(interval)
+            // }
+            console.log('执行')
+
+
+            axios.post('https://dev.usemock.com/6315607ead2611a740134726/bool')
+                .then(res => {
+                    console.log('结果：', res.data.data.data)
+                    if (res.data.data.data) {
+                        flag = 0
+                        clearInterval(interval)
+                        console.log('得到最终结果', res.data.data.data)
+                    } else {
+                        flag = 1
+                    }
+                    // result = res.data
+                })
+                .catch(err => {
+                    console.log('err', err)
+                })
+            console.log('此时flag', flag)
+
+
+
+        }, 10000)
     }
 
 
@@ -108,6 +146,8 @@ export default function Test() {
         <div>
             <button onClick={cycle1}>循环1</button>
             <button onClick={cycle2}>循环2</button>
+            <button onClick={cycle3}>循环3</button>
+
             <button onClick={getdata}>数据获取</button>
             <div>Mock.mock()：
                 <button onClick={mockfunction}>mockfunction</button>

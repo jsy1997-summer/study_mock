@@ -2,7 +2,7 @@
  * @Author: jiasuyin
  * @Date: 2022-08-30 13:36:04
  * @LastEditors: jiasuyin
- * @LastEditTime: 2022-09-03 19:24:05
+ * @LastEditTime: 2022-09-05 10:11:33
  * @important: 重要提醒
  * @Description: 备注内容
  * @FilePath: \study_mock\src\mock\random\basic.js
@@ -13,7 +13,7 @@ var random = Mock.Random
 // Random.boolean( min?, max?, current? )
 // 以min / (min + max)概率返回current
 const boolean =  Mock.mock('/boolean','post',{
-    data:random.boolean(3,7,true)
+    data:random.boolean(5,5,true)
 })
 
 // Random.natural( min?, max? )
@@ -37,7 +37,7 @@ const integer = Mock.mock('/num', 'post', {
     arr:random.range(1,10,2)
 
 })
-
+ // eslint-disable-next-line
 export default {
     boolean,
     natural,
