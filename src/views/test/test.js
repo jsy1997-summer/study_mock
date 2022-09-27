@@ -2,7 +2,7 @@
  * @Author: jiasuyin
  * @Date: 2022-08-30 09:26:42
  * @LastEditors: jiasuyin
- * @LastEditTime: 2022-09-27 10:08:52
+ * @LastEditTime: 2022-09-27 10:21:16
  * @important: 重要提醒
  * @Description: 备注内容
  * @FilePath: \study_mock\src\views\test\test.js
@@ -85,9 +85,7 @@ export default function Test() {
 
     return (
         <div>
-            {/* <div onClick={handleClick}>
-                click to add, count: {count}
-            </div> */}
+            <div>修改测试</div>
             <button onClick={cycle1}>循环1</button>
             <button onClick={cycle2}>循环2</button>
             <button onClick={cycle3}>循环3</button>
