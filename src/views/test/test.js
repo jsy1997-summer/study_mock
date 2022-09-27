@@ -2,7 +2,7 @@
  * @Author: jiasuyin
  * @Date: 2022-08-30 09:26:42
  * @LastEditors: jiasuyin
- * @LastEditTime: 2022-09-19 15:38:15
+ * @LastEditTime: 2022-09-27 10:08:52
  * @important: 重要提醒
  * @Description: 备注内容
  * @FilePath: \study_mock\src\views\test\test.js
@@ -41,179 +41,46 @@ export default function Test() {
                 console.log('errortemplate:', err)
             })
     }
-    function basic() {
-        for (var i = 0; i < 100; i++) {
-            axios.post('/boolean')
-                .then(res => {
-                    console.log('res', res.data.data)
-                })
-                .catch(err => {
-                    console.log('err', err)
-                })
-
-        }
-
-
-        // axios.post('/natural')
-        //     .then(res => {
-        //         console.log('res1', res)
-        //     })
-        axios.post('/num')
+    function basic(){
+        axios.post('/basic')
             .then(res => {
-                console.log('num', res)
+                console.log('res', res)
+            })
+            .catch(err => {
+                console.log('err', err)
             })
     }
-    function data() {
-        axios.post('/date')
-            .then(res => {
-                console.log('date', res)
-            })
+    function data(){}
+    function image(){
+        axios.post('/image').then(res=>{
+            console.log(res,'image')
+        })
+        axios.post('/image1').then(res=>{
+            console.log(res,'image1')
+        })
     }
-    function image() { }
-    function color() { }
-    function text() { }
-    function name() { }
-    function web() { }
-    function address() { }
-    function helper() { }
-    function Miscellaneous() { }
-    function valid() { }
-    function toJSONSchema() { }
-    const [flag, setFlag] = useState(false)
-    var interval1
-    function cycle1() {
-        const inter = setInterval(() => {
-            console.log('执行了')
-            axios.post('/mocktemplate')
-                .then(res => {
-                    if (res.data.flag) {
-                        console.log(res.data.flag, 'res.data.flag')
-                        clearInterval(inter)
-                    }
-                    console.log(res, '执行结果')
-                })
-        }, 1000)
+    function color(){}
+    function text(){
+        axios.post('/text').then(res=>{
+            console.log(res,'text')
+        }) 
     }
-    useEffect(() => {
-        //重新模拟点击事件
-        if (flag) {
-            cycle1()
-        }
-        //更新时清除掉interval
-        return () => clearInterval(interval1)
-    }, [flag])
-    var intervall
-    function cycle2() {
-        setTimeout(() => {
-            console.log('执行了')
-            axios.post('/mocktemplate')
-                .then(res => {
-                    if (res.data.flag) {
-                        console.log(res.data.flag, 'res.data.flag')
-                        return res.data.flag
-                    } else {
-                        cycle2()
-                    }
-                    console.log(res, '执行结果')
-                })
-        }, 1000)
+    function name(){
+        axios.post('/name').then(res=>{
+            console.log(res,'text')
+        }) 
     }
-    //1、怎么解决同步执行
-    //2、怎么解决立即执行一次
-    //3、怎么解决set不生效的问题
-    const [flow, setFlow] = useState(null)
-    function cycle3() {
-        // var flag = 1
-        var num = 0
-
-        const interval = setInterval(function fun() {
-
-            console.log(num, 'num')
-            console.log('执行')
-            const p = request()
-            p.then(res => {
-                setFlow(res.data.data.data)
-
-                if (num === 1) {
-                    //提高num的值，避免得到最终值之后中再次进入
-                    num = 5
-                }
-                console.log('结果：', res.data.data.data)
-                if (res.data.data.data) {
-                    num = num + 1
-                    clearInterval(interval)
-                    console.log('得到最终结果', res.data.data.data)
-                }
-            })
-            console.log('此时flag', flow)
-
-
-
-            return fun //注意需要在函数中返回自身，否则只会执行一次
-        }(), 2000)
-    }
-    const flag1 = useRef()
-
-    function cycle4(){
-        setInterval(()=>{
-            setFlow(true)
-            console.log(flow,'flow')
-            flag1.current = true
-            console.log(flag1.current,'flag1.current')
-        },2000)
-    }
-
-
-    function cycle5(){
-        flag1.current = false
-        console.log(flag1,'flag1')
-
-        setFlow(false)
-    }
-    console.log(flow,'外部变化')
-    useEffect(() => {
-        console.log('检测到变化')
-    }, [flow])
-
-    async function request() {
-        return await axios.post('https://dev.usemock.com/6315607ead2611a740134726/bool')
-    }
-
-    // const [count, setCount] = useState(1)
-    // useEffect(() => {
-    //     setInterval(() => {
-    //         console.log(count)
-    //     }, 1000)
-    //     //闭包陷阱
-    // }, [])
-    // const handleClick = () => {
-    //     setCount(count + 1)
-    // }
-    // const [count, setCount] = useState(1)
-
-    // useEffect(() => {
-    //     setInterval(() => {
-    //         console.log(count)
-    //     }, 1000)
-    //     //闭包陷阱
-    // }, [])
-
-    // const handleClick = () => {
-    //     setCount((prevState) => {
-    //         //浅拷贝
-    //         return Object.assign(prevState, {
-    //             name: 'ssdsd',
-    //         })
-    //     })
-    // }
-
-    // return (
-    //     <div onClick={handleClick}>
-    //         click to add, count: {count.a}, name:{count.name}
-    //     </div>
-    // )
-
-
+    function web(){}
+    function address(){}
+    function helper(){}
+    function Miscellaneous(){}
+    function valid(){}
+    function toJSONSchema(){}
+    function data(){}
+    function image(){}
+    function color(){}
+    function text(){}
+    function name(){}
 
 
     return (
